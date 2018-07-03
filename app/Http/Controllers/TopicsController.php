@@ -28,13 +28,14 @@ class TopicsController extends Controller
 
     public function show(Request $request, Topic $topic)
     {
+
     	 // URL 矫正
         if ( ! empty($topic->slug) && $topic->slug != $request->slug) {
             return redirect($topic->link(), 301);
         }
 
-    	return redirect()->to($topic->link())->with('success', '成功创建话题！');
-        //return view('topics.show', compact('topic'));
+    	//return redirect()->to($topic->link())->with('success', '成功创建话题！');
+        return view('topics.show', compact('topic'));
     }
 
 	public function create(Topic $topic)
