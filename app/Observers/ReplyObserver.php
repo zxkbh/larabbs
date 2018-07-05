@@ -29,4 +29,10 @@ class ReplyObserver
     	// 通知作者话题被回复了
         $topic->user->notify(new TopicReplied($reply));
     }
+
+    //删除回复时，回复数减一
+    public function deleted(Reply $reply)
+    {
+        $reply->topic->decrement('reply_count', 1);
+    }
 }

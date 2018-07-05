@@ -20,4 +20,10 @@ class TopicPolicy extends Policy
     	//return $topic->user_id == $user->id;
         //return true;
     }
+
+    //删除话题 删除话题的所有回复
+    public function deleted(Topic $topic)
+    {
+        \DB::table('replies')->where('topic_id', $topic->id)->delete();
+    }
 }
