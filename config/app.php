@@ -177,6 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //后台管理
+        Frozennode\Administrator\AdministratorServiceProvider::class,
+
     ],
 
     /*
