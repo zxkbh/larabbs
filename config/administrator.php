@@ -84,7 +84,7 @@ return array(
      *  ]
      */
     'menu' => [
-        '用户管理' => [
+        '用户与权限' => [
             'users' // 对应需要创建的文件：`config/administrator/users.php`
         ],
         '内容管理' => [
