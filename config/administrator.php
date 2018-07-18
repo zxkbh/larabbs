@@ -152,7 +152,8 @@ return array(
      */
     //'home_page' => '',
     // 用来作为后台主页的菜单条目，由 `use_dashboard` 选项决定，菜单指的是 `menu` 选项
-    'home_page' => 'users',
+    //'home_page' => 'users',//没权限的进入后台会进入死循环
+    'home_page' => 'topics',
 
 
     /*
@@ -171,7 +172,7 @@ return array(
      */
     //'login_path' => 'login',
     // 当选项 `permission` 权限检测不通过时，会重定向用户到此处设置的路径
-    'login_path' => 'login',
+    'login_path' => 'permission-denied',
 
     /*
      * The logout path is the path where Administrator will send the user when they click the logout link

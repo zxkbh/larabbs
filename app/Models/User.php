@@ -10,6 +10,7 @@ use Auth;
 
 class User extends Authenticatable
 {
+    use Traits\ActiveUserHelper;//计算活跃用户
     use HasRoles;
     //use Notifiable;
 
