@@ -11,6 +11,7 @@ use Auth;
 class User extends Authenticatable
 {
     use Traits\ActiveUserHelper;//计算活跃用户
+    use Traits\LastActivedAtHelper;//记录用户最后登陆时间
     use HasRoles;
     //use Notifiable;
 
@@ -33,7 +34,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','avatar','introduction'
+        'name', 'email', 'password','avatar','introduction','notification_count','last_actived_at'
     ];
 
     /**
