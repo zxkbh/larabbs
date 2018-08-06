@@ -53,5 +53,11 @@ $api->version('v1', [
 			->name('api.captchas.store');
 
 	    $api->get('test','TestController@test');
+
+	    	// 第三方登录
+		$api->post('socials/{social_type}/authorizations', 'AuthorizationsController@socialStore')
+    		->name('api.socials.authorizations.store');
+
+
 	});        
 });
