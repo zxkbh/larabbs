@@ -5,15 +5,27 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
-
 use Auth;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use Traits\ActiveUserHelper;//计算活跃用户
     use Traits\LastActivedAtHelper;//记录用户最后登陆时间
     use HasRoles;
     //use Notifiable;
+
+    // Rest omitted for brevity  必须要实现JWTSubject接口的两个方法
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
 
     use Notifiable {
         notify as protected laravelNotify;
