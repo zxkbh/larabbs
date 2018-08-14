@@ -85,6 +85,10 @@ $api->version('v1', [
 		$api->get('users/{user}/topics', 'TopicsController@userIndex')
     		->name('api.users.topics.index');
 
+		//单个话题
+		$api->get('topics/{topic}', 'TopicsController@show')
+    		->name('api.topics.show');
+
 	});  
 
 
@@ -113,6 +117,8 @@ $api->version('v1', [
 	    //删除话题
 	    $api->delete('topics/{topic}', 'TopicsController@destroy')
     		->name('api.topics.destroy');
+
+
 
 
 	});   

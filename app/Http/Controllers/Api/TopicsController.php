@@ -76,4 +76,11 @@ class TopicsController extends Controller
     }
 
 
+    //单个话题
+    public function show(Topic $topic)
+    {
+        return $this->response->item($topic, new TopicTransformer());
+    }
+
+
 }
