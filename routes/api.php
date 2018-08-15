@@ -41,7 +41,7 @@ $api->version('v1', [
         'limit'      => config('api.rate_limits.sign.limit'),
         'expires'    => config('api.rate_limits.sign.expires'),
     ], function($api) {
-    	//游客可以访问的接口
+    	// 游客可以访问的接口
 
 	    // 短信验证码
 	    $api->post('verificationCodes', 'VerificationCodesController@store')
@@ -55,7 +55,7 @@ $api->version('v1', [
 		$api->post('captchas', 'CaptchasController@store')
 			->name('api.captchas.store');
 
-		//  测试
+		// 测试
 	    $api->get('test','TestController@test');
 
     	// 第三方登录
@@ -73,21 +73,29 @@ $api->version('v1', [
 		$api->delete('authorizations/current', 'AuthorizationsController@destroy')
 		    ->name('api.authorizations.destroy');
 
-		//分类列表
+		// 分类列表
 	    $api->get('categories', 'CategoriesController@index')
     		->name('api.categories.index');
 
-		//话题列表
+		// 话题列表
 		$api->get('topics', 'TopicsController@index')
     		->name('api.topics.index');
 
-		//用户发布的话题
+		// 用户发布的话题
 		$api->get('users/{user}/topics', 'TopicsController@userIndex')
     		->name('api.users.topics.index');
 
-		//单个话题
+		// 单个话题
 		$api->get('topics/{topic}', 'TopicsController@show')
     		->name('api.topics.show');
+
+		// 话题回复列表
+		$api->get('topics/{topic}/replies', 'RepliesController@index')
+		    ->name('api.topics.replies.index');
+
+	    // 某个用户的回复列表
+		$api->get('users/{user}/replies', 'RepliesController@userIndex')
+		    ->name('api.users.replies.index');
 
 	});  
 
