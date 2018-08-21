@@ -183,6 +183,7 @@ return [
         //短信
         App\Providers\EasySmsServiceProvider::class,
 
+        App\Providers\JpushServiceProvider::class,
     ],
 
     /*

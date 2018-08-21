@@ -33,7 +33,7 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v1', [
     'namespace'  => 'App\Http\Controllers\Api',
-    'middleware' => ['serializer:array', 'bindings']
+    'middleware' => ['serializer:array', 'bindings','change-locale']
 ], function($api) {
 
 	 $api->group([
@@ -69,6 +69,7 @@ $api->version('v1', [
 	    // 刷新token
 		$api->put('authorizations/current', 'AuthorizationsController@update')
 		    ->name('api.authorizations.update');
+		    
 		// 删除token
 		$api->delete('authorizations/current', 'AuthorizationsController@destroy')
 		    ->name('api.authorizations.destroy');
